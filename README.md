@@ -1,2 +1,2 @@
-# gltf-properties.doc
-Documentation de l'outil maxscript `GLTF Properties`
+# skaleone.doc
+Documentation de la fiche produit SkaleOne et des outils associés
