@@ -1,8 +1,9 @@
+# GTLF Properties
+
 <style>img {float:right;margin:1rem;}
 h1, h2, h3, h4, h5, h6 { clear:both;}
 </style>
 
-# GTLF Properties
 L'outil maxscript `GLTF Properties` permet de configurer les objets dans 3ds Max afin de leur ajouter des propriétés interprétables par la fiche produit **Skale One**.
 Dans les grandes lignes, cela permet de spécifier le(s) type(s) et les paramètres des objets sélectionnés et d'enregistrer ces données dans leur `User Defined Properties`.
 
