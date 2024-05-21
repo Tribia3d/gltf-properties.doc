@@ -1,4 +1,4 @@
-# GTLF Properties
+# Outil maxscript GTLF Properties
 
 <style>img {float:right;margin:1rem;}
 h1, h2, h3, h4, h5, h6 { clear:both;}
@@ -18,4 +18,9 @@ Il se trouve dans la catégorie `TRIBIA`.
 
 ## Propriétés `Générales
 
-## [`Types` des objets](types.md)
+## `Types` des objets
+
+- camera_virtual
+- camera_virtual_target
+- annotation
+- gotoState
