@@ -25,10 +25,12 @@ Il se trouve dans la catégorie `TRIBIA`.
 <span class="space"/>
 ## Fonctionnement & prise en main
 Les objets sélectionnés sont affichés dans la liste en haut. Il est possible de les éditer un par un ou plusieurs à la fois.
-Lorsque des modifications sont faites, le nom de l'objet apparait en gras dans la liste. Les modifications ne sont pas enregistrées dans la scène (et seront perdues en cas de fermeture de l'outil), tant que le bouton `Enregistrer Sélection` n'auta pas été cliqué.
+Lorsque des modifications sont faites, le nom de l'objet apparait en gras dans la liste. Les modifications ne sont pas enregistrées dans la scène (et seront perdues en cas de fermeture de l'outil), tant que le bouton `Enregistrer Sélection` n'aura pas été cliqué.
 
 ![](https://github.com/Tribia3d/skaleone.doc/assets/40400644/ddb55d2c-e8ca-4945-ae3d-c6fcd2f3327f)
-Lorsque plusieurs objets sont sélectionnés dans la liste ayant des propriétés dont la valeur est identique, ces valeurs sont affichées normalement. Si les valeurs sont différentes, un tiret `—` (ou un carré dans le cas des cases à cocher) est affiché. Si aucune modification n'est apportée dans le champ en question, les valeurs de chacun des objets resteront telles quelles. Par contre, le fait de modifier une valeur avant plusieurs objets sélectionnés va écraser les différentes valeurs de chacun. En cas d'erreur il suffit de recharger l'outil _sans enregistrer_.
+Lorsque plusieurs objets sont sélectionnés dans la liste ayant des propriétés dont la valeur est identique, ces valeurs sont affichées normalement. Si les valeurs sont différentes, un tiret `—` (ou un carré dans le cas des cases à cocher) est affiché. Si aucune modification n'est apportée dans le champ en question, les valeurs de chacun des objets resteront telles quelles. Par contre, le fait de modifier une valeur avant plusieurs objets sélectionnés va écraser les différentes valeurs de chacun. En cas d'erreur il suffit de cliquer sur le bouton `Recharger` _sans enregistrer_.
+
+Le bouton `Enregistrer Tout` va quant à lui enregistrer les modifications sur **tous** les objets de la scène, et pas simplement ceux sélectionnés. Un message de confirmation est affiché avant l'enregistrement.
 
 ```note
 Lorsque l'outil est ouvert et que de nouveaux objets sont créés dans la scène, il se peut qu'il y ait des problèmes de nom (notamment pour les caméras). Dans ce cas il suffit de recharger l'outil avec le bouton `Reload` (mais attention aux modifications non enregistrées).
@@ -48,29 +50,39 @@ La manière dont 3ds Max gère la fenêtre empêche d'utiliser les raccourcis cl
 ![](https://github.com/Tribia3d/skaleone.doc/assets/40400644/e5304234-e174-493c-869b-85e717a5c000)
 Il s'agit des propriétés qui ne dépendent pas du (des) type(s) appliqué(s). On y retrouve le choix du type, les états actifs de l'objet, un champ pour ajouter des notes. Et en bas le JSON de la configuration (en lecture seule).
 
-- [**Type**](#types-des-objets) : Liste permettant d'appliquer un (ou plusieurs) type(s) aux objets, leur ajoutant des fonctions au sein de la fiche produit.
-- [**Active States**](#active-states) : Liste des états de l'application dans lesquels l'objet sera affiché (ou actif dans le cas des caméras)
+- [**Type**](#types-des-objets) : liste permettant d'appliquer un (ou plusieurs) type(s) aux objets, leur ajoutant des fonctions au sein de la fiche produit.
+- [**Active States**](#active-states) : liste des états de l'application dans lesquels l'objet sera affiché (ou actif dans le cas des caméras)
   - **Invert States** : inverse l'effet du champ précédent. L'objet sera affiche dans les états non présents dans la liste `Active States`.
-- **Cast Shadows When Invisible** <span class="badge">non utilisé</span> : Lorsque l'objet est masqué (en raison du champ `Active States`) son ombre reste appliquée sur les autres objets.
-- **Note** : Bloc de texte qui n'a pas d'impact sur la scène permettant de noter des informations diverses si besoin.
+- **Cast Shadows When Invisible** <span class="badge">non utilisé</span> : lorsque l'objet est masqué (en raison du champ `Active States`) son ombre reste appliquée sur les autres objets.
+- **Note** : bloc de texte qui n'a pas d'impact sur la scène permettant de noter des informations diverses si besoin.
 
 
 <span class="space"/>
 ## Types
 
-- [camera_virtual & camera_virtual_target](#camera_virtual)
+- [camera_virtual & camera_virtual_target](#camera_virtual--camera_virtual_target)
 - [annotation](#annotation)
 - [gotoState](#gotoState)
 
 ### camera_virtual & camera_virtual_target
+![](https://github.com/Tribia3d/skaleone.doc/assets/40400644/4f1c6b4d-1241-43fe-8de4-ca64803da2ad)
 La fiche produit fonctionne grâce à un système de caméras virtuelles. La caméra utilisée pour le rendu est toujours la même, mais sa position et ses propriétés sont calquées sur différentes caméras virtuelles. Lors d'un changement d'état, la caméra virtuelle _active_ vera ses paramètres recopiés sur la caméra principale.
 
-En général on utilise `Physical Camera` de 3ds Max avec une cible.
+Le plus simple est d'utiliser une `Physical Camera` de 3ds Max avec une cible. On appliquera le type `camera_virtual` à la caméra et le type `camera_virtual_target` à la cible (autrement la cible ne sera pas exportée en gltf).
+
+#### Paramètres
+- Camera Target (requis) : spécifie la cible de la caméra. Permettra d'orienter la caméra dans la fiche produit. Lors de l'export il n'y a plus de lien entre la caméra et l'objet cible, ce champ est donc nécessaire.
 
 ```warning
-Il est possible que suite à une erreur de saisie plus d'une caméra soit active dans un état donné. Dans ce cas la caméra réellement utilisée est imprévisible, ce cas de figure est à proscrire !
+En cas de duplication d'une caméra pendant que l'outil est ouvert il sera nécessaire de recharger l'outil (fermer et réouvrir l'outil ou bien cliquer sur le bouton `Reload` en haut) autrement le nom de la cible sera incorrect et la fiche produit ne pourra pas retrouver le bon objet.
+```
+- Orbit Controls : détermine si la caméra est contrôlable ou figée.
+- Lerp duration : durée de l'interpolation entre les positions et orientations des caméras lors la transition d'état
+
+
+```warning
+Il est possible que suite à une erreur de saisie plus d'une caméra soit active dans un état donné (états actifs similaire entre plusieurs caméras). Dans ce cas la caméra réellement utilisée est imprévisible, ce cas de figure est à proscrire !
 ```
 
-### camera_virtual_target
 ### annotation
 ### gotoState
