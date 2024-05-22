@@ -5,7 +5,7 @@ h1, h2, h3, h4, h5, h6 { clear:both;}
 </style>
 
 L'outil maxscript `GLTF Properties` permet de configurer les objets dans 3ds Max afin de leur ajouter des propriétés interprétables par la fiche produit **Skale One**.
-Dans les grandes lignes, cela permet de spécifier le(s) type(s) et les paramètres des objets sélectionnés et d'enregistrer ces données dans leur `User Defined Properties`.
+Dans les grandes lignes, cela permet de spécifier le(s) type(s) et les paramètres des objets sélectionnés, afin de pouvoir intéragir avec eux dans la fiche produit.
 
 ## Installation
 ### Copie des fichiers
@@ -15,6 +15,10 @@ Il faut simplement copier le contenu de l'archive `maxscript-webgl-properties.zi
 ![](https://github.com/Tribia3d/gltf-properties.doc/assets/40400644/76811d0c-9a09-4801-b535-a74d2c232e8b)
 L'outil étant un `macroscript`, il est nécessaire de lui attribuer un raccourci ou bien créer un bouton dans une toolbar.
 Il se trouve dans la catégorie `TRIBIA`.
+
+## Fonctionnement
+Les objets sélectionnés sont affichés dans la liste en haut. Il est possible de les éditer un par un ou plusieurs à la fois.
+Lorsque des modifications sont faites, le nom de l'objet apparait en gras dans la liste.
 
 ## Propriétés `Générales
 
