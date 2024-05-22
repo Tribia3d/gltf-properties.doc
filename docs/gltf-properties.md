@@ -44,7 +44,7 @@ La manière dont 3ds Max gère la fenêtre empêche d'utiliser les raccourcis cl
 
 
 <span class="space"/>
-## Propriétés `Générales
+## Propriétés Générales
 ![](https://github.com/Tribia3d/skaleone.doc/assets/40400644/e5304234-e174-493c-869b-85e717a5c000)
 Il s'agit des propriétés qui ne dépendent pas du (des) type(s) appliqué(s). On y retrouve le choix du type, les états actifs de l'objet, un champ pour ajouter des notes. Et en bas le JSON de la configuration (en lecture seule).
 
@@ -58,18 +58,19 @@ Il s'agit des propriétés qui ne dépendent pas du (des) type(s) appliqué(s). 
 <span class="space"/>
 ## Types
 
-- camera_virtual
-- camera_virtual_target
-- annotation
-- gotoState
+- [camera_virtual & camera_virtual_target](#camera_virtual)
+- [annotation](#annotation)
+- [gotoState](#gotoState)
 
-### `camera_virtual`
-La fiche produit fonctionne grâce à un système de caméras virtuelles. La caméra utilisée pour le rendu est toujours la même, mais sa position et ses propriétés sont calquées sur différentes caméras virtuelles. Lors d'un changement d'état, la caméra virtuelle _active_ vera ses paramètres reocpiés sur la caméra principale.
+### camera_virtual & camera_virtual_target
+La fiche produit fonctionne grâce à un système de caméras virtuelles. La caméra utilisée pour le rendu est toujours la même, mais sa position et ses propriétés sont calquées sur différentes caméras virtuelles. Lors d'un changement d'état, la caméra virtuelle _active_ vera ses paramètres recopiés sur la caméra principale.
+
+En général on utilise `Physical Camera` de 3ds Max avec une cible.
 
 ```warning
 Il est possible que suite à une erreur de saisie plus d'une caméra soit active dans un état donné. Dans ce cas la caméra réellement utilisée est imprévisible, ce cas de figure est à proscrire !
 ```
 
-### `camera_virtual_target`
-### `annotation`
-### `gotoState`
+### camera_virtual_target
+### annotation
+### gotoState
