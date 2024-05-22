@@ -48,17 +48,28 @@ La manière dont 3ds Max gère la fenêtre empêche d'utiliser les raccourcis cl
 ![](https://github.com/Tribia3d/skaleone.doc/assets/40400644/e5304234-e174-493c-869b-85e717a5c000)
 Il s'agit des propriétés qui ne dépendent pas du (des) type(s) appliqué(s). On y retrouve le choix du type, les états actifs de l'objet, un champ pour ajouter des notes. Et en bas le JSON de la configuration (en lecture seule).
 
-- [Type](#types-des-objets) : Liste permettant d'appliquer un (ou plusieurs) type(s) aux objets, leur ajoutant des fonctions au sein de la fiche produit.
-- [Active States](#active-states) : Liste des états de l'application dans lesquels l'objet sera affiché (ou actif dans le cas des caméras)
-  - Invert States : inverse l'effet du champ précédent. L'objet sera affiche dans les états non présents dans la liste `Active States`.
-- Cast Shadows When Invisible <span class="badge">non utilisé</span> : lorsque l'objet est masqué (en raison du champ `Active States`) son ombre reste appliquée sur les autres objets.
-- Note : Bloc de texte qui n'a pas d'impact sur la scène permettant de noter des informations diverses si besoin.
+- [**Type**](#types-des-objets) : Liste permettant d'appliquer un (ou plusieurs) type(s) aux objets, leur ajoutant des fonctions au sein de la fiche produit.
+- [**Active States**](#active-states) : Liste des états de l'application dans lesquels l'objet sera affiché (ou actif dans le cas des caméras)
+  - **Invert States** : inverse l'effet du champ précédent. L'objet sera affiche dans les états non présents dans la liste `Active States`.
+- **Cast Shadows When Invisible** <span class="badge">non utilisé</span> : Lorsque l'objet est masqué (en raison du champ `Active States`) son ombre reste appliquée sur les autres objets.
+- **Note** : Bloc de texte qui n'a pas d'impact sur la scène permettant de noter des informations diverses si besoin.
 
 
 <span class="space"/>
-## `Types` des objets
+## Types
 
 - camera_virtual
 - camera_virtual_target
 - annotation
 - gotoState
+
+### `camera_virtual`
+La fiche produit fonctionne grâce à un système de caméras virtuelles. La caméra utilisée pour le rendu est toujours la même, mais sa position et ses propriétés sont calquées sur différentes caméras virtuelles. Lors d'un changement d'état, la caméra virtuelle _active_ vera ses paramètres reocpiés sur la caméra principale.
+
+```warning
+Il est possible que suite à une erreur de saisie plus d'une caméra soit active dans un état donné. Dans ce cas la caméra réellement utilisée est imprévisible, ce cas de figure est à proscrire !
+```
+
+### `camera_virtual_target`
+### `annotation`
+### `gotoState`
