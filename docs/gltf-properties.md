@@ -3,7 +3,7 @@
 <style>
   img {float:right;margin:1rem;}
   .inline img {}
-  h1, h2, h3, h4, h5, h6 { clear:both;}
+  h1, h2, h3 /*, h4, h5, h6 */ { clear:both;}
 </style>
 
 L'outil maxscript `GLTF Properties` permet de configurer les objets dans 3ds Max afin de leur ajouter des propriétés interprétables par la fiche produit **Skale One**.
