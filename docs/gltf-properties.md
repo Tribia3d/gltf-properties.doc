@@ -9,7 +9,10 @@
 L'outil maxscript `GLTF Properties` permet de configurer les objets dans 3ds Max afin de leur ajouter des propriétés interprétables par la fiche produit **Skale One**.
 Dans les grandes lignes, cela permet de spécifier le(s) type(s) et les paramètres des objets sélectionnés, afin de pouvoir intéragir avec eux dans la fiche produit.
 
+
+<span class="space"/>
 ## Installation
+
 ### Copie des fichiers
 Il faut simplement copier le contenu de l'archive `maxscript-webgl-properties.zip` de l'outil maxscript dans le répertoire `/scripts` du dossier d'installation de 3ds Max (par défaut: `C:\Program Files\Autodesk\3ds Max 202x\scripts\`).
 
@@ -18,6 +21,8 @@ Il faut simplement copier le contenu de l'archive `maxscript-webgl-properties.zi
 L'outil étant un `macroscript`, il est nécessaire de lui attribuer un raccourci ou bien créer un bouton dans une toolbar.
 Il se trouve dans la catégorie `TRIBIA`.
 
+
+<span class="space"/>
 ## Fonctionnement & prise en main
 Les objets sélectionnés sont affichés dans la liste en haut. Il est possible de les éditer un par un ou plusieurs à la fois.
 Lorsque des modifications sont faites, le nom de l'objet apparait en gras dans la liste. Les modifications ne sont pas enregistrées dans la scène (et seront perdues en cas de fermeture de l'outil), tant que le bouton `Enregistrer Sélection` n'auta pas été cliqué.
@@ -30,11 +35,27 @@ Lorsque l'outil est ouvert et que de nouveaux objets sont créés dans la scène
 ```
 
 ```note
+Pour certains champs, il est possible de créer des valeurs si elles n'existent pas dans la liste. Pour cela il suffira d'écrire la nouvelle valeur et recliquer sur `Create "abcd"`. La nouvelle valeur apparaitra alors sur fond rouge dans les champs à choix multiples.
+```
+
+```note
 La manière dont 3ds Max gère la fenêtre empêche d'utiliser les raccourcis clavier, il n'est donc pas possible d'utiliser `CTRL + C` et `CTRL + V` pour copier / coller du texte. Mais cela fonctionne avec le menu contextuel de la soucis (clic droit).
 ```
 
-## Propriétés `Générales
 
+<span class="space"/>
+## Propriétés `Générales
+![](https://github.com/Tribia3d/skaleone.doc/assets/40400644/e5304234-e174-493c-869b-85e717a5c000)
+Il s'agit des propriétés qui ne dépendent pas du (des) type(s) appliqué(s). On y retrouve le choix du type, les états actifs de l'objet, un champ pour ajouter des notes. Et en bas le JSON de la configuration (en lecture seule).
+
+- [Type](#types-des-objets) : Liste permettant d'appliquer un (ou plusieurs) type(s) aux objets, leur ajoutant des fonctions au sein de la fiche produit.
+- [Active States](#active-states) : Liste des états de l'application dans lesquels l'objet sera affiché (ou actif dans le cas des caméras)
+  - Invert States : inverse l'effet du champ précédent. L'objet sera affiche dans les états non présents dans la liste `Active States`.
+- Cast Shadows When Invisible <span class="badge">non utilisé</span> : lorsque l'objet est masqué (en raison du champ `Active States`) son ombre reste appliquée sur les autres objets.
+- Note : Bloc de texte qui n'a pas d'impact sur la scène permettant de noter des informations diverses si besoin.
+
+
+<span class="space"/>
 ## `Types` des objets
 
 - camera_virtual
