@@ -61,12 +61,16 @@ Il s'agit des propriétés qui ne dépendent pas du (des) type(s) appliqué(s). 
 - [camera_virtual & camera_virtual_target](#camera_virtual--camera_virtual_target)
 - [annotation](#annotation)
 - [gotoState](#gotoState)
+- [billboard](#billboard)
+- [shadow_plane_height](#shadow_plane_height)
 
 ### camera_virtual & camera_virtual_target
 ![camera_virtual](https://github.com/Tribia3d/skaleone.doc/assets/40400644/4f1c6b4d-1241-43fe-8de4-ca64803da2ad)
 La fiche produit fonctionne grâce à un système de caméras virtuelles. La caméra utilisée pour le rendu est toujours la même, mais sa position et ses propriétés sont calquées sur différentes caméras virtuelles. Lors d'un changement d'état, la caméra virtuelle _active_ vera ses paramètres recopiés sur la caméra principale.
 
 Le plus simple est d'utiliser une `Physical Camera` de 3ds Max avec une cible. On appliquera le type `camera_virtual` à la caméra et le type `camera_virtual_target` à la cible (autrement la cible ne sera pas exportée en gltf).
+
+Concernant la cible, il faut simplement lui spécifier le type `camera_virtual_target`, il n'y a pas d'autres paramètres.
 
 #### Paramètres
 - **Camera Target** <span class="badge">requis</span> : spécifie la cible de la caméra. Permettra d'orienter la caméra dans la fiche produit. Lors de l'export il n'y a plus de lien entre la caméra et l'objet cible, ce champ est donc nécessaire.
@@ -110,3 +114,12 @@ Permet de changer d'état lors du clic sur un objet ou l'annotation (puce / tool
 
 #### Paramètre
 - **Goto State** : state vers lequel transitionner lors du clic.
+
+### billboard
+Les objets ayant le type `billboard` sont automatiquement orienté en direction de la camera. Il faut prendre garde à modifier le pivot de l'objet en question afin que l'axe Y (3ds Max) entre dans l'objet
+![](https://github.com/Tribia3d/skaleone.doc/assets/40400644/8655c431-9c95-4037-952d-0f04166f931b)
+
+
+### shadow_plane_height
+Les ombres (contact ou dynamiques) sont projetées sur un plan horizontal. Ce paramètre permet de déterminer la hauteur (z dans 3ds Max et y en webgl) de ce plan via la position de l'objet sur lequel il est appliqué.
+Il n'y a aucune paramètre particulier, il faut simplement spécifier le type `shadow_plane_height` à un objet.
