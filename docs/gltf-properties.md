@@ -60,7 +60,7 @@ Il s'agit des propriétés qui ne dépendent pas du (des) type(s) appliqué(s). 
 
 - [camera_virtual & camera_virtual_target](#camera_virtual--camera_virtual_target)
 - [annotation](#annotation)
-- [gotoState](#gotoState)
+- [gotoState](#gotostate)
 - [billboard](#billboard)
 - [shadow_plane_height](#shadow_plane_height)
 
