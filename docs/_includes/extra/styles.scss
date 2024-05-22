@@ -24,7 +24,14 @@
 
 .badge {
     background-color: #1d5a82;
-    color: white;
+    color: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 1.5rem;
+    padding: 0 .75rem;
+}
+
+img {
+    box-shadow: 0px 0px 25px -5px rgba(0,0,0,0.66);
 }
 
 input[type=button],
