@@ -64,6 +64,7 @@ Il s'agit des propriétés qui ne dépendent pas du (des) type(s) appliqué(s). 
 - [billboard](#billboard)
 - [shadow_plane_height](#shadow_plane_height)
 
+<span class="space"/>
 ### camera_virtual & camera_virtual_target
 ![camera_virtual](https://github.com/Tribia3d/skaleone.doc/assets/40400644/4f1c6b4d-1241-43fe-8de4-ca64803da2ad)
 La fiche produit fonctionne grâce à un système de caméras virtuelles. La caméra utilisée pour le rendu est toujours la même, mais sa position et ses propriétés sont calquées sur différentes caméras virtuelles. Lors d'un changement d'état, la caméra virtuelle _active_ vera ses paramètres recopiés sur la caméra principale.
@@ -96,6 +97,7 @@ En cas de duplication d'une caméra pendant que l'outil est ouvert il sera néce
 Il est possible que suite à une erreur de saisie plus d'une caméra soit active dans un état donné (états actifs similaire entre plusieurs caméras). Dans ce cas la caméra réellement utilisée est imprévisible, ce cas de figure est à proscrire !
 ```
 
+<span class="space"/>
 ### annotation
 ![annotation](https://github.com/Tribia3d/skaleone.doc/assets/40400644/2eb31636-53d2-4d27-9a44-e1c2d2d859f9)
 Les annotations sont des puces et des tooltips affichés sur un calque 2d rattachés à des objets dans la scène 3d. Lorsque la caméra ou les objets bougent, les annotations 2d suivent le mouvement.
@@ -108,6 +110,7 @@ Les annotations sont des puces et des tooltips affichés sur un calque 2d rattac
 - **Annotation Outline Selected** : affiche ou non un contour sur cet objet et ses descendants hiérarchiques lors du survol de la souris.
 - **Annotation Force Position** : permet de forcer la position du tooltip par rapport à la puce. Par défaut le tooltip est placé au dessus de la puce.
 
+<span class="space"/>
 ### gotoState
 ![gotoState](https://github.com/Tribia3d/skaleone.doc/assets/40400644/82966304-bb35-47c1-9e7e-e2d43633979d)
 Permet de changer d'état lors du clic sur un objet ou l'annotation (puce / tooltip).
@@ -115,11 +118,13 @@ Permet de changer d'état lors du clic sur un objet ou l'annotation (puce / tool
 #### Paramètre
 - **Goto State** : state vers lequel transitionner lors du clic.
 
+<span class="space"/>
 ### billboard
-Les objets ayant le type `billboard` sont automatiquement orienté en direction de la camera. Il faut prendre garde à modifier le pivot de l'objet en question afin que l'axe Y (3ds Max) entre dans l'objet
-![](https://github.com/Tribia3d/skaleone.doc/assets/40400644/8655c431-9c95-4037-952d-0f04166f931b)
+![orientation pivot billboard](https://github.com/Tribia3d/skaleone.doc/assets/40400644/5911d9d9-9946-4297-9ce4-20c8452223e1)
+Les objets ayant le type `billboard` sont automatiquement orienté en direction de la camera.
+Il faut prendre garde à modifier le pivot de l'objet en question afin que l'axe Y (3ds Max) "entre" dans l'objet.
 
-
+<span class="space"/>
 ### shadow_plane_height
 Les ombres (contact ou dynamiques) sont projetées sur un plan horizontal. Ce paramètre permet de déterminer la hauteur (z dans 3ds Max et y en webgl) de ce plan via la position de l'objet sur lequel il est appliqué.
 Il n'y a aucune paramètre particulier, il faut simplement spécifier le type `shadow_plane_height` à un objet.
