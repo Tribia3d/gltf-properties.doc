@@ -71,14 +71,24 @@ La fiche produit fonctionne grâce à un système de caméras virtuelles. La cam
 Le plus simple est d'utiliser une `Physical Camera` de 3ds Max avec une cible. On appliquera le type `camera_virtual` à la caméra et le type `camera_virtual_target` à la cible (autrement la cible ne sera pas exportée en gltf).
 
 #### Paramètres
-- Camera Target (requis) : spécifie la cible de la caméra. Permettra d'orienter la caméra dans la fiche produit. Lors de l'export il n'y a plus de lien entre la caméra et l'objet cible, ce champ est donc nécessaire.
+- **Camera Target** <span class="badge">requis</span> : spécifie la cible de la caméra. Permettra d'orienter la caméra dans la fiche produit. Lors de l'export il n'y a plus de lien entre la caméra et l'objet cible, ce champ est donc nécessaire.
+- **Orbit Controls** : détermine si la caméra est contrôlable ou figée.
+- **Lerp duration** : durée de l'interpolation entre les positions et orientations des caméras lors la transition d'état.
+- **Enable Rotate** : active ou non la possibilité de faire tourner la caméra.
+- **Enable Pan** : active ou non la possibilité de déplacer latéralement la caméra.
+- **Enable Zoom** : active ou non la possibilité de zoomer (dolly : changement de la distance de la caméra à la cible).
+- **Min Azimuth Angle** <span class="badge">non utilisé</span> : rotation minimale sur le plan horizontal, valeur comprise dans l'intervalle `[-2 PI, 2 PI]`.
+- **Max Azimuth Angle** <span class="badge">non utilisé</span> : rotation maximale sur le plan horizontal, valeur comprise dans l'intervalle `[-2 PI, 2 PI]`.
+- **Min Polar Angle** <span class="badge">non utilisé</span> : rotation minimale sur le plan vertical, vaeur comprise dans l'intervalle `[0, PI]`.
+- **Max Polar Angle** <span class="badge">non utilisé</span> : rotation maximale sur le plan vertical, vaeur comprise dans l'intervalle `[0, PI]`.
+- **Min Distance** : distance minimale à laquelle il est possible de s'approcher
+- **Max Distance** : distance maximale à laquelle il est possible de s'éloigner
+- **Ground Threshold** : si spécifiée, cette valeur va bloquer la rotation de la caméra au niveau du seuil indiqué (en mètres) par rapport au sol (`z = 0` dans 3ds Max ou `y = 0` en webgl)
+- **Auto Rotate** : active ou non la rotation automatique autour de la cible.
 
 ```warning
 En cas de duplication d'une caméra pendant que l'outil est ouvert il sera nécessaire de recharger l'outil (fermer et réouvrir l'outil ou bien cliquer sur le bouton `Reload` en haut) autrement le nom de la cible sera incorrect et la fiche produit ne pourra pas retrouver le bon objet.
 ```
-- Orbit Controls : détermine si la caméra est contrôlable ou figée.
-- Lerp duration : durée de l'interpolation entre les positions et orientations des caméras lors la transition d'état
-
 
 ```warning
 Il est possible que suite à une erreur de saisie plus d'une caméra soit active dans un état donné (états actifs similaire entre plusieurs caméras). Dans ce cas la caméra réellement utilisée est imprévisible, ce cas de figure est à proscrire !
