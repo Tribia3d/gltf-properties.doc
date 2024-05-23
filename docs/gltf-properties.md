@@ -49,7 +49,7 @@ La manière dont 3ds Max gère la fenêtre empêche d'utiliser les raccourcis cl
 Il s'agit des propriétés de base qui ne dépendent pas du (des) type(s) appliqué(s). En bas se trouve l'aperçu de la configuration au format JSON (en lecture seule).
 
 - [**Type**](#types) : liste permettant d'appliquer un (ou plusieurs) type(s) aux objets, leur ajoutant des fonctions au sein de la fiche produit.
-- **Active States** : liste des états de l'application dans lesquels l'objet sera affiché (ou actif dans le cas des caméras). _(Les `annotations` possèdent leur propre champ Annotation Active States dédié.)_
+- **Active States** : liste des [états de l'application](states.md) dans lesquels l'objet sera affiché (ou actif dans le cas des caméras). _(Les `annotations` possèdent leur propre champ Annotation Active States dédié.)_
   - **Invert States** : inverse l'effet du champ précédent. L'objet sera affiche dans les états non présents dans la liste `Active States`.
 - **Cast Shadows When Invisible** <span class="badge">non utilisé</span> : lorsque l'objet est masqué (en raison du champ `Active States`) son ombre reste appliquée sur les autres objets.
 - **Note** : bloc de texte qui n'a pas d'impact sur la scène permettant de noter des informations diverses si besoin.
@@ -75,8 +75,8 @@ Concernant la cible, il faut simplement lui spécifier le type `camera_virtual_t
 
 #### Paramètres
 - **Camera Target** <span class="badge">requis</span> : spécifie la cible de la caméra. Permettra d'orienter la caméra dans la fiche produit. Lors de l'export il n'y a plus de lien entre la caméra et l'objet cible, ce champ est donc nécessaire.
-- **Orbit Controls** : détermine si la caméra est contrôlable ou figée.
 - **Lerp duration** : durée de l'interpolation entre les positions et orientations des caméras lors la transition d'état.
+- **Orbit Controls** : détermine si la caméra est contrôlable ou figée.
 - **Enable Rotate** : active ou non la possibilité de faire tourner la caméra.
 - **Enable Pan** : active ou non la possibilité de déplacer latéralement la caméra.
 - **Enable Zoom** : active ou non la possibilité de zoomer (dolly : changement de la distance de la caméra à la cible).
@@ -105,7 +105,7 @@ Les annotations sont des puces et des tooltips affichés sur un calque 2d rattac
 #### Paramètres
 - **Annotation Id** : référence de l'annotation dans le fichier de configuration JSON. Permet de faire correspondre l'objet avec son contenu.
 - **Annotation Style** <span class="badge">non utilisé</span> : permet de choisir le style de l'annotation. Pour l'instant la fiche produit ne possède qu'un seul style, ce paramètre n'est donc pas utilisé, et sera sans doute déplacé dans le fichier de configuration par la suite.
-- **Annotation Active States** : liste des états de scène dans lesquels l'annotation sera visible.
+- **Annotation Active States** : liste des [états](states.md) dans lesquels l'annotation sera visible.
   - **Annotation Invert States** : inverse l'effet du champ `Annotation Active States`.
 - **Annotation Outline Selected** : affiche ou non un contour sur cet objet et ses descendants hiérarchiques lors du survol de la souris.
 - **Annotation Force Position** : permet de forcer la position du tooltip par rapport à la puce. Par défaut le tooltip est placé au dessus de la puce.
@@ -113,7 +113,7 @@ Les annotations sont des puces et des tooltips affichés sur un calque 2d rattac
 <span class="space"/>
 ### gotoState
 ![gotoState](https://github.com/Tribia3d/skaleone.doc/assets/40400644/82966304-bb35-47c1-9e7e-e2d43633979d)
-Permet de changer d'état lors du clic sur un objet ou l'annotation (puce / tooltip).
+Permet de changer d'[état](states.md) lors du clic sur un objet ou l'annotation (puce / tooltip).
 
 #### Paramètre
 - **Goto State** : state vers lequel transitionner lors du clic.
