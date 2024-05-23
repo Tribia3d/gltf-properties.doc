@@ -46,10 +46,10 @@ La manière dont 3ds Max gère la fenêtre empêche d'utiliser les raccourcis cl
 <span class="space"/>
 ## Propriétés Générales
 ![general](https://github.com/Tribia3d/skaleone.doc/assets/40400644/e5304234-e174-493c-869b-85e717a5c000)
-Il s'agit des propriétés qui ne dépendent pas du (des) type(s) appliqué(s). On y retrouve le choix du type, les états actifs de l'objet, un champ pour ajouter des notes. Et en bas le JSON de la configuration (en lecture seule).
+Il s'agit des propriétés de base qui ne dépendent pas du (des) type(s) appliqué(s). En bas se trouve l'aperçu de la configuration au format JSON (en lecture seule).
 
-- [**Type**](#types-des-objets) : liste permettant d'appliquer un (ou plusieurs) type(s) aux objets, leur ajoutant des fonctions au sein de la fiche produit.
-- [**Active States**](#active-states) : liste des états de l'application dans lesquels l'objet sera affiché (ou actif dans le cas des caméras). _(Les `annotations` possèdent leur propre champ Annotation Active States dédié.)_
+- [**Type**](#types) : liste permettant d'appliquer un (ou plusieurs) type(s) aux objets, leur ajoutant des fonctions au sein de la fiche produit.
+- **Active States** : liste des états de l'application dans lesquels l'objet sera affiché (ou actif dans le cas des caméras). _(Les `annotations` possèdent leur propre champ Annotation Active States dédié.)_
   - **Invert States** : inverse l'effet du champ précédent. L'objet sera affiche dans les états non présents dans la liste `Active States`.
 - **Cast Shadows When Invisible** <span class="badge">non utilisé</span> : lorsque l'objet est masqué (en raison du champ `Active States`) son ombre reste appliquée sur les autres objets.
 - **Note** : bloc de texte qui n'a pas d'impact sur la scène permettant de noter des informations diverses si besoin.
